@@ -1,3 +1,24 @@
+/* This code was built from referencing a number of sources including examples
+ * from Blynk, ArduinoOTA, ESP8266Wifi, and Nicoo's Web Controlled Water System
+ * You should be able to follow which pins are connected where
+ * I have the Blynk console with a push button switch on V2, a holding switch
+ * on V3, and LEDs tied to V4, V5, and V6 to light up on the phone when a zone
+ * is running.  I used the Eventor widget to trigger V2 on a timer at specific
+ * times on the clock.  I also have a terminal widget tied to V1.
+ * The purpose of this project is to open solenoid valves hooked up after an
+ * RV pump (that turns on automatically when pressure on the back side drops
+ * like when a valve opens up) that pumps water from my rain barrels.  But I
+ * do not want the pump to run when there is no water in the barrels, so I have
+ * an ultrasonic distance measurer to ping the surface of the water to make sure
+ * it is OK to open the valve.  The water level is checked at each zone.  Feedback
+ * is posted to the terminal widget so I can review what happened later. 
+ * I have two different relay boards; one uses LOW to flip the relay, the other
+ * uses HIGH to flip the relay.  So I used a #define at the beginning of the 
+ * project to switch it when I change boards.  
+
+ Frank Voss
+ May 1, 2017  */
+
 #include "Timer.h"
 #include <BlynkSimpleEsp8266.h>
 #include <ESP8266WiFi.h>
